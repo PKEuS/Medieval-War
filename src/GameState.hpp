@@ -3,6 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
+
 enum GameStates
 {
 	INTRO,
@@ -15,15 +16,19 @@ enum GameStates
 	EXIT
 };
 
+
 class GameState
 {
 public:
 	GameState(sf::RenderWindow& window);
-	~GameState();
+	virtual ~GameState();
 
 	virtual GameStates Run() = 0;
+	
 protected:
 	sf::RenderWindow& myWindow;
 };
 
 #endif
+
+
