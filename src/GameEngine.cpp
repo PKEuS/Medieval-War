@@ -9,7 +9,7 @@
 
 GameEngine::GameEngine(int argc, char* argv[])
 {
-	myWindow.Create(sf::VideoMode(800, 640), "Medieval War", sf::Style::Close);
+	myWindow.Create(sf::VideoMode(800, 600), "Medieval War", sf::Style::Close);
 	myWindow.EnableVerticalSync(true);
 }
 
