@@ -13,7 +13,7 @@ project(MedievalWar)
 include(${CMAKE_SOURCE_DIR}/Config.cmake)
 
 # dependencies
-find_package(SFML 2.0 REQUIRED GRAPHICS SYSTEM)
+find_package(SFML 2.0 REQUIRED WINDOW GRAPHICS SYSTEM AUDIO)
 
 set(DEPS ${SFML_LIBRARIES})
 

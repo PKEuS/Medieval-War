@@ -3,6 +3,8 @@
 
 #include <map>
 #include <string>
+#include <stdexcept>
+
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 

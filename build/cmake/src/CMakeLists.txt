@@ -61,6 +61,9 @@ set(SRC
     ${SRCROOT}/GSMultiplayerGame.hpp
     ${SRCROOT}/GSMapEditor.cpp
     ${SRCROOT}/GSMapEditor.hpp
+    ${SRCROOT}/Resourcemanager.cpp
+    ${SRCROOT}/Resourcemanager.hpp
+    ${SRCROOT}/Resourcemanager.inl
 )
 
 # add executable
