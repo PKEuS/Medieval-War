@@ -61,6 +61,8 @@ set(SRC
     ${SRCROOT}/GSMultiplayerGame.hpp
     ${SRCROOT}/GSMapEditor.cpp
     ${SRCROOT}/GSMapEditor.hpp
+    ${SRCROOT}/GSError.cpp
+    ${SRCROOT}/GSError.hpp
     ${SRCROOT}/Resourcemanager.cpp
     ${SRCROOT}/Resourcemanager.hpp
     ${SRCROOT}/Resourcemanager.inl

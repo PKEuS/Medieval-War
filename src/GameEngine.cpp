@@ -5,6 +5,7 @@
 #include "GSMapEditor.hpp"
 #include "GSSettings.hpp"
 #include "GSCredits.hpp"
+#include "GSError.hpp"
 #include "GameEngine.hpp"
 
 GameEngine::GameEngine(int argc, char* argv[])
@@ -17,67 +18,81 @@ GameEngine::~GameEngine()
 {
 }
 
-void GameEngine::Run()
+int GameEngine::Run()
 {
 	while(myWindow.IsOpened())
 	{
 		switch(myCurrentGameState)
 		{
-		case INTRO:
+			case INTRO:
 			{
 				GameState* state = new GSIntro(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case MENU:
+			case MENU:
 			{
 				GameState* state = new GSMenu(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case SINGLEPLAYERGAME:
+			case SINGLEPLAYERGAME:
 			{
 				GameState* state = new GSSingleplayerGame(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case MULTIPLAYERGAME:
+			case MULTIPLAYERGAME:
 			{
 				GameState* state = new GSMultiplayerGame(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case MAPEDITOR:
+			case MAPEDITOR:
 			{
 				GameState* state = new GSMapEditor(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case SETTINGS:
+			case SETTINGS:
 			{
 				GameState* state = new GSSettings(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case CREDITS:
+			case CREDITS:
 			{
 				GameState* state = new GSCredits(myWindow);
 				myCurrentGameState = state->Run();
 				delete state;
 			}
 			break;
-		case EXIT:
+			case ERROR:
 			{
-				myWindow.Close();
+				GameState* state = new GSError(myWindow);
+				myCurrentGameState = state->Run();
+				delete state;
 			}
 			break;
-		default:
+			case EXIT:
+			{
+				myWindow.Close();
+				return EXIT_SUCCESS;
+			}
+			break;
+			case ABORT:
+			{
+				myWindow.Close();
+				return EXIT_FAILURE;
+			}
+			break;
+			default:
 			{
 				myCurrentGameState = INTRO;
 			}
@@ -85,3 +100,4 @@ void GameEngine::Run()
 		}
 	}
 }
+

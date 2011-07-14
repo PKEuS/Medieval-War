@@ -13,7 +13,9 @@ enum GameStates
 	MAPEDITOR,
 	SETTINGS,
 	CREDITS,
-	EXIT
+	ERROR,
+	EXIT,
+	ABORT
 };
 
 

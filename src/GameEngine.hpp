@@ -10,7 +10,7 @@ public:
 	GameEngine(int argc, char* argv[]);
 	~GameEngine();
 
-	void Run();
+	int Run();
 private:
 	sf::RenderWindow myWindow;
 	GameStates myCurrentGameState;
