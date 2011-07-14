@@ -45,6 +45,9 @@
     <ClCompile Include="..\..\src\Main.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\Resourcemanager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\GameEngine.hpp">
@@ -74,5 +77,13 @@
     <ClInclude Include="..\..\src\GSSingleplayerGame.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\Resourcemanager.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\Resourcemanager.inl">
+      <Filter>Quelldateien</Filter>
+    </None>
   </ItemGroup>
 </Project>
