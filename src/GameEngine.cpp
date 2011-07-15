@@ -16,11 +16,12 @@ GameEngine::GameEngine(int argc, char* argv[])
 
 GameEngine::~GameEngine()
 {
+	myWindow.Close();
 }
 
 int GameEngine::Run()
 {
-	while(myWindow.IsOpened())
+	while(true)
 	{
 		switch(myCurrentGameState)
 		{
@@ -82,13 +83,11 @@ int GameEngine::Run()
 			break;
 			case EXIT:
 			{
-				myWindow.Close();
 				return EXIT_SUCCESS;
 			}
 			break;
 			case ABORT:
 			{
-				myWindow.Close();
 				return EXIT_FAILURE;
 			}
 			break;
