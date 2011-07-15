@@ -18,11 +18,11 @@ GameStates GSError::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXIT;
+				return EXITFAILURE;
 			}
 			else if(event.Key.Code == sf::Keyboard::Return)
 			{
-				return ABORT;
+				return EXITFAILURE;
 			}
 		}
 	

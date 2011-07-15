@@ -18,7 +18,7 @@ GameStates GSSingleplayerGame::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXIT;
+				return EXITSUCCESS;
 			}
 			else if(event.Key.Code == sf::Keyboard::Return)
 			{

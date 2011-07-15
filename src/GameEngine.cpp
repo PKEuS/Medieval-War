@@ -81,12 +81,12 @@ int GameEngine::Run()
 				delete state;
 			}
 			break;
-			case EXIT:
+			case EXITSUCCESS:
 			{
 				return EXIT_SUCCESS;
 			}
 			break;
-			case ABORT:
+			case EXITFAILURE:
 			{
 				return EXIT_FAILURE;
 			}

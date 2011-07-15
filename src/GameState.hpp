@@ -14,8 +14,8 @@ enum GameStates
 	SETTINGS,
 	CREDITS,
 	ERROR,
-	EXIT,
-	ABORT
+	EXITSUCCESS,
+	EXITFAILURE
 };
 
 
