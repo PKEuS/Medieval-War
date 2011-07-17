@@ -6,34 +6,34 @@
 namespace bfs = boost::filesystem;
 
 
-std::string FileSystem::GetUserProfileDirectory()
+bfs::path FileSystem::GetUserProfileDirectory()
 {
 	#if defined linux || defined __linux
-		return std::getenv("HOME");
+		return bfs::path(std::getenv("HOME"));
 	#elif defined _WIN32 || defined __WIN32__
-		return std::getenv("APPDATA");
+		return bfs::(std::getenv("APPDATA"));
 	#else
 		#warning "No userprofile directory found. Using './MedievalWar' for configuration files."
-		return "./";
+		return bfs::path("./");
 	#endif
 }
 
 
-std::string FileSystem::GetGameSettingsDirectory()
+bfs::path FileSystem::GetGameSettingsDirectory()
 {
-	std::string directory(GetUserProfileDirectory());
+	bfs::path directory(GetUserProfileDirectory());
 	
-	if(directory[directory.size() - 1] != '/')
+	if(directory.string()[directory.string().size() - 1] != '/')
 	{
-		directory += "/";
+		directory /= "/";
 	}
 	
 	#if defined linux || defined __linux
-		directory += ".medieval-war/";
+		directory /= ".medieval-war/";
 	#elif defined _WIN32 || defined __WIN32__
-		directory += "MedievalWar/";
+		directory /= "MedievalWar/";
 	#else
-		directory += "MedievalWar/";
+		directory /= "MedievalWar/";
 	#endif
 	
 	return directory;
@@ -42,22 +42,20 @@ std::string FileSystem::GetGameSettingsDirectory()
 
 std::list<bfs::path> FileSystem::GetDirectoryContent(const bfs::path& directory)
 {
-	bfs::path p(directory);
-	
 	try
 	{
-		if(bfs::exists(p) && bfs::is_directory(p))
+		if(bfs::exists(directory) && bfs::is_directory(directory))
 		{
 			std::list<bfs::path> content;
 		
-			copy(bfs::directory_iterator(p), bfs::directory_iterator(), std::back_inserter(content));
+			copy(bfs::directory_iterator(directory), bfs::directory_iterator(), std::back_inserter(content));
 			content.sort();
 			
 			return content;
 		}
 		else
 		{
-			std::cerr << "Failed to read the content of " << p << ": Not a directory.\n";
+			std::cerr << "Failed to read the content of " << directory << ": Not a directory.\n";
 			return std::list<bfs::path>();
 		}
 	
