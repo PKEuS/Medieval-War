@@ -66,6 +66,8 @@ set(SRC
     ${SRCROOT}/Resourcemanager.cpp
     ${SRCROOT}/Resourcemanager.hpp
     ${SRCROOT}/Resourcemanager.inl
+    ${SRCROOT}/FileSystem.cpp
+    ${SRCROOT}/FileSystem.hpp
 )
 
 # add executable
