@@ -14,9 +14,11 @@ include(${CMAKE_SOURCE_DIR}/Config.cmake)
 
 # dependencies
 find_package(SFML 2.0 REQUIRED WINDOW GRAPHICS SYSTEM AUDIO)
+find_package(Boost 1.46 COMPONENTS system filesystem thread)
 
-set(DEPS ${SFML_LIBRARIES})
+set(DEPS ${SFML_LIBRARIES} ${Boost_LIBRARIES})
 
+include_directories(${Boost_INCLUDE_DIRS})
 
 # setup version numbers
 set(VERSION_MAJOR 1)
