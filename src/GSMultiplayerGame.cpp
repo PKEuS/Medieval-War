@@ -1,4 +1,6 @@
+#include "GSMenu.hpp"
 #include "GSMultiplayerGame.hpp"
+#include "GSError.hpp"
 
 GSMultiplayerGame::GSMultiplayerGame(sf::RenderWindow& window) :
 GameState(window)
@@ -9,7 +11,7 @@ GSMultiplayerGame::~GSMultiplayerGame()
 {
 }
 
-GameStates GSMultiplayerGame::Run()
+GameState* GSMultiplayerGame::Run()
 {
 	while(true)
 	{
@@ -18,11 +20,7 @@ GameStates GSMultiplayerGame::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITSUCCESS;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return MAPEDITOR;
+				return NULL;
 			}
 		}
 	

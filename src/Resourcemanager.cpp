@@ -1,6 +1,5 @@
 #include "Resourcemanager.hpp"
 
-
 FileNotFoundException::FileNotFoundException(const std::string& filename) :
 std::runtime_error("File not found: " + filename)
 {

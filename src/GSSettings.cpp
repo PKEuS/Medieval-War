@@ -1,4 +1,6 @@
+#include "GSMenu.hpp"
 #include "GSSettings.hpp"
+#include "GSError.hpp"
 
 GSSettings::GSSettings(sf::RenderWindow& window) :
 GameState(window)
@@ -9,7 +11,7 @@ GSSettings::~GSSettings()
 {
 }
 
-GameStates GSSettings::Run()
+GameState* GSSettings::Run()
 {
 	while(true)
 	{
@@ -18,11 +20,7 @@ GameStates GSSettings::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITSUCCESS;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return CREDITS;
+				return NULL;
 			}
 		}
 	

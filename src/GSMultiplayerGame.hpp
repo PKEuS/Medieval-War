@@ -10,7 +10,7 @@ public:
 	GSMultiplayerGame(sf::RenderWindow& window);
 	~GSMultiplayerGame();
 
-	GameStates Run();
+	GameState* Run();
 };
 
 #endif

@@ -10,7 +10,7 @@ public:
 	GSSingleplayerGame(sf::RenderWindow& window);
 	~GSSingleplayerGame();
 
-	GameStates Run();
+	GameState* Run();
 };
 
 #endif

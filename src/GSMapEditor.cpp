@@ -1,4 +1,6 @@
+#include "GSMenu.hpp"
 #include "GSMapEditor.hpp"
+#include "GSError.hpp"
 
 GSMapEditor::GSMapEditor(sf::RenderWindow& window) :
 GameState(window)
@@ -9,7 +11,7 @@ GSMapEditor::~GSMapEditor()
 {
 }
 
-GameStates GSMapEditor::Run()
+GameState* GSMapEditor::Run()
 {
 	while(true)
 	{
@@ -18,11 +20,7 @@ GameStates GSMapEditor::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITSUCCESS;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return SETTINGS;
+				return NULL;
 			}
 		}
 	

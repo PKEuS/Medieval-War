@@ -11,8 +11,7 @@ public:
 	GSError(sf::RenderWindow& window);
 	~GSError();
 
-	GameStates Run();
+	GameState* Run();
 };
 
-#endif // GSERROR
-
+#endif

@@ -1,3 +1,7 @@
+#include <boost/scoped_ptr.hpp>
+
+#include "GameState.hpp"
+
 #include "GSIntro.hpp"
 #include "GSMenu.hpp"
 #include "GSSingleplayerGame.hpp"
@@ -6,7 +10,9 @@
 #include "GSSettings.hpp"
 #include "GSCredits.hpp"
 #include "GSError.hpp"
+
 #include "GameEngine.hpp"
+
 
 GameEngine::GameEngine(Settings& settings) :
 mySettings(settings)
@@ -22,82 +28,13 @@ GameEngine::~GameEngine()
 
 int GameEngine::Run()
 {
-	while(true)
+	boost::scoped_ptr<GameState> state(new GSIntro(myWindow));
+	
+	while(state)
 	{
-		switch(myCurrentGameState)
-		{
-			case INTRO:
-			{
-				GameState* state = new GSIntro(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case MENU:
-			{
-				GameState* state = new GSMenu(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case SINGLEPLAYERGAME:
-			{
-				GameState* state = new GSSingleplayerGame(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case MULTIPLAYERGAME:
-			{
-				GameState* state = new GSMultiplayerGame(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case MAPEDITOR:
-			{
-				GameState* state = new GSMapEditor(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case SETTINGS:
-			{
-				GameState* state = new GSSettings(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case CREDITS:
-			{
-				GameState* state = new GSCredits(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case ERROR:
-			{
-				GameState* state = new GSError(myWindow);
-				myCurrentGameState = state->Run();
-				delete state;
-			}
-			break;
-			case EXITSUCCESS:
-			{
-				return EXIT_SUCCESS;
-			}
-			break;
-			case EXITFAILURE:
-			{
-				return EXIT_FAILURE;
-			}
-			break;
-			default:
-			{
-				myCurrentGameState = INTRO;
-			}
-			break;
-		}
+		state.reset(state->Run());
 	}
+	
+	return GameState::GetReturnValue();
 }
 

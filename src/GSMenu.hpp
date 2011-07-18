@@ -10,7 +10,7 @@ public:
 	GSMenu(sf::RenderWindow& window);
 	~GSMenu();
 
-	GameStates Run();
+	GameState* Run();
 };
 
 #endif

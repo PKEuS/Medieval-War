@@ -1,4 +1,6 @@
+#include "GSMenu.hpp"
 #include "GSCredits.hpp"
+#include "GSError.hpp"
 
 GSCredits::GSCredits(sf::RenderWindow& window) :
 GameState(window)
@@ -9,7 +11,7 @@ GSCredits::~GSCredits()
 {
 }
 
-GameStates GSCredits::Run()
+GameState* GSCredits::Run()
 {
 	while(true)
 	{
@@ -18,11 +20,7 @@ GameStates GSCredits::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITSUCCESS;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return EXITSUCCESS;
+				return NULL;
 			}
 		}
 	

@@ -4,13 +4,14 @@
 #include <SFML/Graphics.hpp>
 #include "GameState.hpp"
 
+
 class GSMapEditor : public GameState
 {
 public:
 	GSMapEditor(sf::RenderWindow& window);
 	~GSMapEditor();
 
-	GameStates Run();
+	GameState* Run();
 };
 
 #endif

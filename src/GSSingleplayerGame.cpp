@@ -1,4 +1,6 @@
+#include "GSMenu.hpp"
 #include "GSSingleplayerGame.hpp"
+#include "GSError.hpp"
 
 GSSingleplayerGame::GSSingleplayerGame(sf::RenderWindow& window) :
 GameState(window)
@@ -9,7 +11,7 @@ GSSingleplayerGame::~GSSingleplayerGame()
 {
 }
 
-GameStates GSSingleplayerGame::Run()
+GameState* GSSingleplayerGame::Run()
 {
 	while(true)
 	{
@@ -18,11 +20,7 @@ GameStates GSSingleplayerGame::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITSUCCESS;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return MULTIPLAYERGAME;
+				return NULL;
 			}
 		}
 	

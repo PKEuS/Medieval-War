@@ -1,4 +1,11 @@
+#include "GSIntro.hpp"
 #include "GSMenu.hpp"
+#include "GSSingleplayerGame.hpp"
+#include "GSMultiplayerGame.hpp"
+#include "GSMapEditor.hpp"
+#include "GSSettings.hpp"
+#include "GSCredits.hpp"
+#include "GSError.hpp"
 
 GSMenu::GSMenu(sf::RenderWindow& window) :
 GameState(window)
@@ -9,7 +16,7 @@ GSMenu::~GSMenu()
 {
 }
 
-GameStates GSMenu::Run()
+GameState* GSMenu::Run()
 {
 	while(true)
 	{
@@ -18,11 +25,7 @@ GameStates GSMenu::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITSUCCESS;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return SINGLEPLAYERGAME;
+				return NULL;
 			}
 		}
 	

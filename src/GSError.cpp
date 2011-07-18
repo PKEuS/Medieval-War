@@ -3,13 +3,14 @@
 GSError::GSError(sf::RenderWindow& window) :
 GameState(window)
 {
+	SetReturnValue(EXIT_FAILURE);
 }
 
 GSError::~GSError()
 {
 }
 
-GameStates GSError::Run()
+GameState* GSError::Run()
 {
 	while(true)
 	{
@@ -18,11 +19,7 @@ GameStates GSError::Run()
 		{
 			if((event.Type == sf::Event::Closed) || ((event.Type == sf::Event::KeyPressed) && (event.Key.Code == sf::Keyboard::Escape)))
 			{
-				return EXITFAILURE;
-			}
-			else if(event.Key.Code == sf::Keyboard::Return)
-			{
-				return EXITFAILURE;
+				return NULL;
 			}
 		}
 	

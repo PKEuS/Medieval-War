@@ -4,13 +4,14 @@
 #include <SFML/Graphics.hpp>
 #include "GameState.hpp"
 
+
 class GSIntro : public GameState
 {
 public:
 	GSIntro(sf::RenderWindow& window);
 	~GSIntro();
 
-	GameStates Run();
+	GameState* Run();
 };
 
 #endif

@@ -4,13 +4,14 @@
 #include <SFML/Graphics.hpp>
 #include "GameState.hpp"
 
+
 class GSSettings : public GameState
 {
 public:
 	GSSettings(sf::RenderWindow& window);
 	~GSSettings();
 
-	GameStates Run();
+	GameState* Run();
 };
 
 #endif

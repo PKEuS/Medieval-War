@@ -1,6 +1,7 @@
 #include "FileSystem.hpp"
 
 #include <cstdlib>
+#include <iostream>
 
 
 namespace bfs = boost::filesystem;
