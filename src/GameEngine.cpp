@@ -8,9 +8,10 @@
 #include "GSError.hpp"
 #include "GameEngine.hpp"
 
-GameEngine::GameEngine(int argc, char* argv[])
+GameEngine::GameEngine(Settings& settings) :
+mySettings(settings)
 {
-	myWindow.Create(sf::VideoMode(800, 600), "Medieval War", sf::Style::Close);
+	myWindow.Create(mySettings.GetVideoMode(), "Medieval War", mySettings.GetWindowStyle());
 	myWindow.EnableVerticalSync(true);
 }
 

@@ -3,17 +3,20 @@
 
 #include <SFML/Graphics.hpp>
 #include "GameState.hpp"
+#include "Settings.hpp"
 
 class GameEngine
 {
 public:
-	GameEngine(int argc, char* argv[]);
+	GameEngine(Settings& settings);
 	~GameEngine();
 
 	int Run();
 private:
 	sf::RenderWindow myWindow;
 	GameStates myCurrentGameState;
+	
+	Settings& mySettings;
 };
 
 #endif

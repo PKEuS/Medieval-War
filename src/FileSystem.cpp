@@ -60,9 +60,9 @@ std::list<bfs::path> FileSystem::GetDirectoryContent(const bfs::path& directory)
 		}
 	
 	}
-	catch (const bfs::filesystem_error& ex)
+	catch(const bfs::filesystem_error& ex)
 	{
-		std::cerr << ex.what() << '\n';
+		std::cerr << "Error while reading the content of a directory:\n" << ex.what() << "\n\n";
 	}
 }
 
