@@ -57,7 +57,6 @@ std::list<bfs::path> FileSystem::GetDirectoryContent(const bfs::path& directory)
 		else
 		{
 			std::cerr << "Failed to read the content of " << directory << ": Not a directory.\n";
-			return std::list<bfs::path>();
 		}
 	
 	}
@@ -65,6 +64,8 @@ std::list<bfs::path> FileSystem::GetDirectoryContent(const bfs::path& directory)
 	{
 		std::cerr << "Error while reading the content of a directory:\n" << ex.what() << "\n\n";
 	}
+	
+	return std::list<bfs::path>();
 }
 
 

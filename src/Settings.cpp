@@ -69,7 +69,7 @@ void Settings::LoadConfigFile()
 				
 				while(!file.eof())
 				{
-					unsigned int pos = file.tellg();
+					std::streamoff pos = file.tellg();
 					std::getline(file, name);
 					if(name[0] == '[')
 					{
@@ -95,7 +95,7 @@ void Settings::LoadConfigFile()
 
 int Settings::ParseArguments()
 {
-	for(unsigned int i = 1; i < myArgc; ++i)
+	for(int i = 1; i < myArgc; ++i)
 	{
 		std::string argument = myArgv[i];
 		
