@@ -5,9 +5,6 @@
 #include <string>
 #include <stdexcept>
 
-#include <SFML/Graphics.hpp>
-#include <SFML/Audio.hpp>
-
 
 class FileNotFoundException : public std::runtime_error
 {
@@ -15,10 +12,11 @@ public:
 	FileNotFoundException(const std::string& filename);
 };
 
-
-namespace sf {
+namespace sf
+{
 class Image;
 class SoundBuffer;
+class Music;
 class Font;
 }
 
@@ -39,12 +37,13 @@ public:
 private:
 	enum Type
 	{
-		NONE, IMAGE, SOUND, FONT
+		NONE, IMAGE, SOUND, MUSIC, FONT
 	} myType;
 	union
 	{
 		sf::Image* myImage;
 		sf::SoundBuffer* mySound;
+		sf::Music* myMusic;
 		sf::Font* myFont;
 	};
 };

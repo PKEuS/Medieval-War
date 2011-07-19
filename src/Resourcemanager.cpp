@@ -1,5 +1,9 @@
 #include "Resourcemanager.hpp"
 
+#include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+
+
 FileNotFoundException::FileNotFoundException(const std::string& filename) :
 std::runtime_error("File not found: " + filename)
 {
@@ -34,6 +38,17 @@ void Resource::Load<sf::SoundBuffer>(const std::string& path)
 	}
 }
 template<>
+void Resource::Load<sf::Music>(const std::string& path)
+{
+	if(myType == NONE)
+	{
+		myType = MUSIC;
+		myMusic = new sf::Music();
+		if(!myMusic->OpenFromFile(path))
+			throw(FileNotFoundException(path));
+	}
+}
+template<>
 void Resource::Load<sf::Font>(const std::string& path)
 {
 	if(myType == NONE)
@@ -58,6 +73,12 @@ sf::SoundBuffer& Resource::Get<sf::SoundBuffer>() const
 	return *mySound;
 }
 template<>
+sf::Music& Resource::Get<sf::Music>() const
+{
+	if(myType != MUSIC) throw std::logic_error("You tried to load music from a resource which is no music.");
+	return *myMusic;
+}
+template<>
 sf::Font& Resource::Get<sf::Font>() const
 {
 	if(myType != FONT) throw std::logic_error("You tried to load a font from a resource which is no font.");
@@ -73,6 +94,9 @@ Resource::~Resource()
 			break;
 		case SOUND:
 			delete mySound;
+			break;
+		case MUSIC:
+			delete myMusic;
 			break;
 		case FONT:
 			delete myFont;

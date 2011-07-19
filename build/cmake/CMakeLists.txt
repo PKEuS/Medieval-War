@@ -20,6 +20,9 @@ set(DEPS ${SFML_LIBRARIES} ${Boost_LIBRARIES})
 
 include_directories(${Boost_INCLUDE_DIRS})
 
+# set error flags
+set(CMAKE_CXX_FLAGS "-Wall -Wextra -Wconversion -Wshadow -pedantic -pedantic-errors")
+
 # setup version numbers
 set(VERSION_MAJOR 1)
 set(VERSION_MINOR 0)
