@@ -149,9 +149,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\src\FileSystem.cpp" />
     <ClCompile Include="..\..\src\GameEngine.cpp" />
     <ClCompile Include="..\..\src\GameState.cpp" />
     <ClCompile Include="..\..\src\GSCredits.cpp" />
+    <ClCompile Include="..\..\src\GSError.cpp" />
     <ClCompile Include="..\..\src\GSIntro.cpp" />
     <ClCompile Include="..\..\src\GSMapEditor.cpp" />
     <ClCompile Include="..\..\src\GSMenu.cpp" />
@@ -160,11 +162,14 @@
     <ClCompile Include="..\..\src\GSSingleplayerGame.cpp" />
     <ClCompile Include="..\..\src\Main.cpp" />
     <ClCompile Include="..\..\src\Resourcemanager.cpp" />
+    <ClCompile Include="..\..\src\Settings.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\src\FileSystem.hpp" />
     <ClInclude Include="..\..\src\GameEngine.hpp" />
     <ClInclude Include="..\..\src\GameState.hpp" />
     <ClInclude Include="..\..\src\GSCredits.hpp" />
+    <ClInclude Include="..\..\src\GSError.hpp" />
     <ClInclude Include="..\..\src\GSIntro.hpp" />
     <ClInclude Include="..\..\src\GSMapEditor.hpp" />
     <ClInclude Include="..\..\src\GSMenu.hpp" />
@@ -172,6 +177,7 @@
     <ClInclude Include="..\..\src\GSSettings.hpp" />
     <ClInclude Include="..\..\src\GSSingleplayerGame.hpp" />
     <ClInclude Include="..\..\src\Resourcemanager.hpp" />
+    <ClInclude Include="..\..\src\Settings.hpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\src\Resourcemanager.inl" />

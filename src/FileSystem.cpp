@@ -12,7 +12,7 @@ bfs::path FileSystem::GetUserProfileDirectory()
 	#if defined linux || defined __linux
 		return bfs::path(std::getenv("HOME"));
 	#elif defined _WIN32 || defined __WIN32__
-		return bfs::(std::getenv("APPDATA"));
+		return bfs::path(std::getenv("APPDATA"));
 	#else
 		#warning "No userprofile directory found. Using './MedievalWar' for configuration files."
 		return bfs::path("./");
