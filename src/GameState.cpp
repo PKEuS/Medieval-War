@@ -14,7 +14,7 @@ int GameState::GetReturnValue()
 	return myReturnValue;
 }
 
-int GameState::SetReturnValue(int returnValue)
+void GameState::SetReturnValue(int returnValue)
 {
 	myReturnValue = returnValue;
 }

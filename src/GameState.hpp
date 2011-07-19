@@ -14,7 +14,7 @@ public:
 
 	virtual GameState* Run() = 0;
 protected:
-	static int SetReturnValue(int returnValue);
+	static void SetReturnValue(int returnValue);
 	sf::RenderWindow& myWindow;
 private:
 	static int myReturnValue;
